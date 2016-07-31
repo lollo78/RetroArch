@@ -319,7 +319,7 @@ static int database_info_list_iterate_found_match(
       if (strcmp(db_playlist_base_str, "ScummVM.lpl") == 0)
          name = db_info_entry->description;
       else
-         name = db_info_entry->name;
+         nam = name,
 
       // Add the item to the playlist.      
       
