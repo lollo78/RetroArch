@@ -319,16 +319,15 @@ static int database_info_list_iterate_found_match(
       if (strcmp(db_playlist_base_str, "ScummVM.lpl") == 0)
          name = db_info_entry->description;
       else
-         name = name,
+         name = db_info_entry->name;
 
-      // Add the item to the playlist.      
-      
+      // Add the item to the playlist.
       playlist_push(playlist, entry_path_str,
-            db_info_entry->name,
+            name,
             file_path_str(FILE_PATH_DETECT),
             file_path_str(FILE_PATH_DETECT),
             db_crc, db_playlist_base_str);
-   }
+}
 
    playlist_write_file(playlist);
    playlist_free(playlist);
