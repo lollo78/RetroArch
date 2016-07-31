@@ -313,6 +313,16 @@ static int database_info_list_iterate_found_match(
 
    if(!playlist_entry_exists(playlist, entry_path_str, db_crc))
    {
+      // For ScummVM, use the game description, for every
+      // other system, use the DAT's game name.
+      char* name;
+      if (strcmp(db_playlist_base_str, "ScummVM.lpl") == 0)
+         name = db_info_entry->description;
+      else
+         name = db_info_entry->name;
+
+      // Add the item to the playlist.      
+      
       playlist_push(playlist, entry_path_str,
             db_info_entry->name,
             file_path_str(FILE_PATH_DETECT),
